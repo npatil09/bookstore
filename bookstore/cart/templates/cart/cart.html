@@ -1,0 +1,65 @@
+{% extends 'store/base.html' %}
+
+{% block body %}
+<div class="container my-5">
+  <form method="POST">
+    <div class="table-responsive">
+      {% csrf_token %}
+      <table class="table table-primary table-bordered">
+        <thead class="thead-dark text-center">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Image</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Total Price</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        {% for i in products %}
+        <tbody class="text-center" style="background-color: #e0f7fa;">
+          <tr>
+            <td>{{ i.book_id.book_name }}</td>
+            <td><img src="{{ i.book_id.book_image.url }}" alt="{{ i.book_id.book_name }}" class="img-fluid" style="height: 100px; width: 70px;"></td>
+            <td>{{ i.quantity }}</td>
+            <td>{{ i.total_price }}</td>
+            <td>
+              <button type="submit" formaction="/cart/deletefromcart" class="btn btn-danger" name="bid" value="{{ i.id }}">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+        {% endfor %}
+      </table>
+    </div>
+
+    <div class="text-center mt-4">
+      <button formaction="/order/checkout" class="btn btn-success">Checkout</button>
+    </div>
+  </form>
+</div>
+
+<style>
+  body {
+    background-color: #f0f0f0; /* Light background color */
+  }
+
+  .container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for card effect */
+  }
+
+  table {
+    width: 100%; /* Ensure table spans the container width */
+  }
+
+  thead th {
+    background-color: #4a69bd;
+    color: #ffffff;
+  }
+
+  tbody tr:hover {
+    background-color: #d1ecf1; /* Hover effect for table rows */
+  }
+</style>
+{% endblock %}

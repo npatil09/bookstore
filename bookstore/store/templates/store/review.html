@@ -1,0 +1,37 @@
+{% extends 'store/base.html' %}
+
+{% block title %}Book Information{% endblock %}
+
+{% block body %}
+<form action="/store/review">
+<div class="container py-5">
+    <div class="row justify-content-center">
+        {% if book %}
+            <div class="col-md-8 d-flex">
+                <div class="card flex-row shadow-sm" style="width: 100%;">
+                    <img src="{{ book.book_image.url }}" class="card-img-left" alt="{{ book.book_name }}" style="height: 350px; width: 250px; object-fit: cover;">
+                    <div class="card-body">
+                        <h2 class="card-title">{{ book.book_name }}</h2>
+                        <h5 class="card-subtitle mb-2 text-muted"><strong>Type: {{ book.book_type }}</strong></h5>
+                        
+                        <h5 class="card-text">Description:</h5>
+                        <i><p class="card-text">{{ book.book_desc }}</p></i>
+                    </div>
+                </div>
+            </div>
+
+        
+            
+            
+        {% endif %}
+
+        <div class="col-md-8 text-center mt-3">
+            <div class="card-footer">
+                <a href="{% url 'home' %}" class="btn btn-secondary">Back to Home</a>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+{% endblock %}
+

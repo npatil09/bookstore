@@ -1,0 +1,62 @@
+{% extends 'store/base.html' %}
+
+{% block body %}
+{% load static %}
+
+<div class="container mt-5">
+    <div class="row justify-content-center align-items-center">
+        
+        <!-- Image section -->
+        
+        <div class="col-md-6 d-none d-md-block">
+            <img src="{% static 'user/booklogo13.png' %}" class="d-block w-100" alt="World Book Day" style="height: 500px;width: 100px;">
+        </div>
+        
+
+        <!-- Signup Form Section -->
+        <div class="col-md-6">
+            <div class="card shadow p-4" style="background-color: #f8f9fa;">
+                <h3 class="text-center mb-4">Create Your Account</h3>
+                <form action="/" method="post">
+                    {% csrf_token %}
+                    
+                    <!-- Username Field -->
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" name="username" class="form-control" id="username" placeholder="Enter your name" required>
+                    </div>
+
+                    <!-- Email Field -->
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com" required>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div class="mb-3">
+                        <label for="pass1" class="form-label">Password</label>
+                        <input type="password" name="pass1" class="form-control" id="pass1" placeholder="Enter password" required>
+                    </div>
+
+                    <!-- Confirm Password Field -->
+                    <div class="mb-3">
+                        <label for="pass2" class="form-label">Confirm Password</label>
+                        <input type="password" name="pass2" class="form-control" id="pass2" placeholder="Confirm password" required>
+                    </div>
+
+                    <!-- Signup Button -->
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Sign Up</button>
+                    </div>
+                </form>
+
+                <!-- Login Redirect -->
+                <div class="text-center text-secondary mt-3">
+                    Already have an account? <a href="/login" class="text-primary">Log in</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
