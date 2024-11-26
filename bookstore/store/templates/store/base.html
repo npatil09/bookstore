@@ -77,7 +77,14 @@
                   {{ request.session.username }}
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="/profile">My Profile</a></li>
+                  <li class="nav-item">
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'view_profile' %}" class="btn btn-link text-decoration-none">View Profile</a> |
+                       
+                    {% endif %}
+                </li>
+                
+                
                   <li><a class="dropdown-item" href="/logout">Logout</a></li>
                 </ul>
               </li>
@@ -87,7 +94,7 @@
                 <a class="nav-link active" aria-current="page" href="/login">Login</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/signup">Sign Up</a>
+                <a class="nav-link" href="/">Sign Up</a>
               </li>
               {% endif %}
             </ul>

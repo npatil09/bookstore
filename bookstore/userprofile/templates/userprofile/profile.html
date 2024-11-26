@@ -1,0 +1,19 @@
+{% extends 'store/base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4 text-center">Edit Your Profile</h2>
+    <form method="post" enctype="multipart/form-data" class="border p-4 rounded shadow-sm bg-light">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="text-center mt-3">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </form>
+    {% if user.profile.photo %}
+    <div class="text-center mt-4">
+        <img src="{{ user.profile.photo.url }}" alt="Profile Picture" class="rounded-circle border" width="150">
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

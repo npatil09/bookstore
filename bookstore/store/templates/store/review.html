@@ -3,7 +3,7 @@
 {% block title %}Book Information{% endblock %}
 
 {% block body %}
-<form action="/store/review">
+<form action="/cart/addtocart" method="POST">
 <div class="container py-5">
     <div class="row justify-content-center">
         {% if book %}
@@ -23,13 +23,23 @@
         
             
             
-        {% endif %}
+        
 
         <div class="col-md-8 text-center mt-3">
-            <div class="card-footer">
-                <a href="{% url 'home' %}" class="btn btn-secondary">Back to Home</a>
+            <div class="card-footer d-flex justify-content-center gap-2">
+                <!-- Back to Home Button -->
+                <a href="{% url 'home' %}" class="btn btn-secondary px-4">Back to Home</a>
+                
+                <!-- Add to Cart Button -->
+                <form action="{% url 'addtocart' %}" method="post" class="d-inline">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-primary px-4" name="bid" value="{{ book.book_id }}">Add to Cart</button>
+                </form>
             </div>
         </div>
+        
+        {% endif %}
+        
     </div>
 </div>
 </form>

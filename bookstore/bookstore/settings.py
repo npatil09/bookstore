@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'store',
     'user',
     'cart',
-    'checkout'
+    'checkout',
+    'userprofile',
+    
     
 ]
 

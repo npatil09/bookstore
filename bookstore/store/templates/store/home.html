@@ -66,31 +66,54 @@
         <div class="col-md-3 col-sm-6">
           <div class="card h-100 shadow-sm">
 
-            <!-- Book Image -->
-            <img src="{{ i.book_image.url }}" class="card-img-top" alt="{{ i.book_name }}" style="height: 380px; object-fit: cover;">
+            <!-- Book Image as Review Button -->
+            <button formaction="/store/review" type="submit" name="bid" value="{{ i.book_id }}" class="border-0 p-0" style="background: none;">
+              <img src="{{ i.book_image.url }}" class="card-img-top" alt="{{ i.book_name }}" style="height: 380px; object-fit: cover; cursor: pointer;">
+            </button>
 
             <!-- Card Body -->
             <div class="card-body">
               <h5 class="card-title">{{ i.book_name }}</h5>
-              <p class="card-text">{{i.book_type}}</p>
-              <p class="card-text">RS.{{ i.price    }}  <button formaction="/store/review"   type="submit" name="bid" value="{{ i.book_id }}" class="btn btn-success">Review</button>
-                <button  type="submit" value="{{i.book_id}}" name="book_id"  formaction="/store/book_info">Comments....</button></p>
-              
+              <p class="card-text">{{ i.book_type }}</p>
+              <p class="card-text">RS.{{ i.price }}</p>
             </div>
 
-            <!-- Card Footer with Add to Cart Button -->
+            <!-- Card Footer with Buttons -->
             <div class="card-footer">
-              <button type="submit" class="btn btn-primary w-100" name="bid" value="{{ i.book_id }}" >Add to cart</button>
-              
+              <div class="row">
+                <!-- Reviews Button -->
+                <div class="col-6 pe-1">
+                  <button 
+                    type="submit" 
+                    class="btn btn-danger text-dark w-100" 
+                    name="book_id" 
+                    value="{{ i.book_id }}" 
+                    formaction="/store/book_info">
+                    REVIEWS
+                  </button>
+                </div>
+                <!-- Add To Cart Button -->
+                <div class="col-6 ps-1">
+                  <button 
+                    type="submit" 
+                    class="btn btn-primary w-100" 
+                    name="bid" 
+                    value="{{ i.book_id }}">
+                    Add To Cart
+                  </button>
+                </div>
+              </div>
             </div>
+            
           </div>
         </div>
       {% endfor %}
 
     </div>
   </div>
-  
+
 </form>
+
 
 
 {% endblock %}
