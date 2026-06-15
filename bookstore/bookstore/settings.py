@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-s=7xev(uji28(+zo#-1@536lf02u3c8qwa9!@&0=^y*-e3m+kx'
+SECRET_KEY = ("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -106,16 +106,16 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 #security key client id
-PAYPAL_CLIENT_ID='AdsPVVOKXINN-4ljVn7M4GOR5fgAqTCVdRqrD3TzbLakujAmRGQVmNdWMHBR-ggmWCBNT-_rXLRkZcFF'
-PAYPAL_SECRETE_KEY='EL47KKColXBaEpO1rFSy8-YnDOMw5yrj2RfnBqSgUwjFRxQ0kqPVGmm3sIWEjhHnOQDI541WW16LxeBC'
+PAYPAL_CLIENT_ID='LIENT_ID'
+PAYPAL_SECRETE_KEY='KEY'
 
 #Email sending
 EMAIL_SENDING ='django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST ='smtp.gmail.com'
 EMAIL_USE_TLS=True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'nppatil2003@gmail.com'
-EMAIL_HOST_PASSWORD ='xhfdintltksbjghp'
+EMAIL_HOST_USER = 'EMAIL'
+EMAIL_HOST_PASSWORD ='PASS'
 
 
 # Internationalization
